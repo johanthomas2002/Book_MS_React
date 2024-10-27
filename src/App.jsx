@@ -3,6 +3,8 @@ import './App.css'
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addBook, removeBook } from './Redux/Slice/bookSlice';
+import Header from './Header';
+import Footer from './Footer';
 
 
 
@@ -49,6 +51,9 @@ function App() {
 
   return (
     <>
+
+      <Header/>
+
       <h1 className='text-center text-danger mt-5'>Book Managment System</h1>
       <div className='text-center mt-5'>
         <button className='btn btn-warning text-light' onClick={handleShow}>ADD BOOK</button>
@@ -73,7 +78,7 @@ function App() {
               <td>{book.author}</td>
               <td><Button className='bg-danger' onClick={()=>dispatch(removeBook(index))}><i class="fa-solid fa-trash"></i></Button></td>
             </tr>
-            )):<div className='text-danger fs-5'>Nothing to display</div>
+            )):<div className='text-danger fs-5'>No Books To display</div>
             }
           </tbody>
 
@@ -101,6 +106,9 @@ function App() {
           <Button variant="primary" onClick={handleAddBook}>ADD</Button>
         </Modal.Footer>
       </Modal>
+
+      <Footer/>
+
     </>
   )
 }
